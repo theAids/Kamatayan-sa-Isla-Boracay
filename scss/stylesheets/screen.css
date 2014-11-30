@@ -1,0 +1,63 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 7, ../sass/screen.scss */
+#main_header {
+  width: inherit;
+  height: 50px;
+  background-color: #FFFFFF;
+}
+
+/* line 13, ../sass/screen.scss */
+#main {
+  background-color: #F1E6C6;
+  padding: 200px;
+  border: 200px;
+  margin: 0px;
+}
+
+/* line 20, ../sass/screen.scss */
+#title {
+  padding: 50px;
+  width: 1000px;
+  height: 300px;
+  text-align: center;
+  border-radius: 20px;
+  opacity: 0.9;
+}
+
+/* line 29, ../sass/screen.scss */
+#options {
+  padding: 80px;
+  border: 100px;
+  text-align: center;
+  margin: 0px auto;
+}
+
+/* line 36, ../sass/screen.scss */
+.play_button {
+  background-size: 100%;
+  outline: 0;
+  border: 0;
+  background: url(../../images/boat.png) no-repeat center;
+  width: 300px;
+  height: 250px;
+  font-size: 25px;
+  color: #FFFFFF;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* line 49, ../sass/screen.scss */
+#play_but:hover {
+  font-size: 170%;
+  width: 350px;
+  height: 300px;
+}
+
+/* line 55, ../sass/screen.scss */
+body {
+  background-image: url("../../images/boracay.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

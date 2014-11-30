@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;
+       charset=utf-8" />
+ <link rel="stylesheet" type="text/css" href="../../bootstrap-3.3.0.1/css/bootstrap.css"/>
+<style type="text/css">
+body {
+    text-align: center;
+	background-image:url("BackgroundPic.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+#novelDiv {
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+}
+
+.menuItem {
+    width: 50%;
+    margin: 0.5em auto;
+    padding: 0.5em 3em;
+    background-color: #0050a0;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-family: "Deja Vu Sans", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+	opacity: 0.85;
+}
+
+div.menuItem:hover {
+    background-color: #00a0ff;
+}
+#return_btn {
+}
+
+#dialogDiv {
+    font-family: "Deja Vu Sans", Helvetica, Arial, sans-serif;
+    font-size: 40px;
+    position: absolute;
+    width: 790px;
+    height: 140px;
+    background-color: #3d372c;
+    color: white;
+    top: 450px;
+    left: 0;
+    padding: 5px;
+    text-align: left;
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+}
+</style>
+
+<script type="text/javascript" src="../js-vine.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+imgPath = "images_2/";
+audioPath = "audio_2/";
+
+var preload = [
+"sylvie_normal.png",
+"sylvie_giggle.png",
+"sylvie_smile.png",
+"sylvie_surprised.png",
+"sylvie2_normal.png",
+"sylvie2_giggle.png",
+"sylvie2_smile.png",
+"sylvie2_surprised.png"
+];
+
+var preloadObj = new Array(preload.length);
+for (var i = 0; i < preload.length; i++)
+{
+    preloadObj[i] = new Image();
+    preloadObj[i].src = imgPath + preload[i];
+}
+
+var s;
+var e;
+var m;
+var narrator;
+var diagram;
+var male;
+var female;
+var textArea;
+var leftSide;
+var rightSide;
+var nearTop;
+var center;
+var textCenter;
+var textTop;
+var bigFont;
+var script;
+
+function prepareNovel()
+{
+    novel.imagePath = "images_2/";
+    novel.audioPath = "audio_2/";
+    s = new Character('kikay', {color: "#c8ffc8"});
+    e = new Character('eileen', {color: "#c8ffd8"});
+    m = new Character('Me', {color: "#c8c8ff"});
+    narrator = new Character('');
+    center = new Position(0.5, 0, 0.5, 0);
+
+    script = [
+
+    label, "start",
+    clearTableau, "",
+    showDialog, "visible",
+    audio, {src: "illurock", format:["ogg"], loop: true, action: "play"},
+    scene, "lecturehall.jpg",
+    narrator, "Hello adventurer! ",
+    narrator, "rather unfortunately, ",
+	
+	label, "later",
+    scene, {image: "black.png", effect: "dissolve"},
+    e, "nadukot ang walet ko",
+    e, "kailangan natin ang sikat na mandirigma dito sa lungsod na to",
+    e, "dali, tawagin si angas ng borakay",
+
+    scene, {image: "uni.jpg", effect: "dissolve"},
+    m, "teka sino ba siya?",
+    e, "pinangak noong disyembre 24",
+    e, "siya ang kilala bilang ama ng sundalong burakay",
+    m, "ah ok ",
+
+    s, {image: "sylvie_normal.png", position: center},
+    e, "ano kikilos ka ba o hindi?",
+    menu, [
+        "",
+        "...dibs nalng ako ng pulis", [jump, "dibs"],
+        "...contact ko nalnag siya via skype", [jump, "skype"]
+    ],
+
+    
+
+    label, "dibs",
+    s, {image: "sylvie_normal.png"},
+
+    narrator, "pulis wasn't able to recover the lost item,",
+    narrator, "continue and maybe you can find a replacement wallet for your tourist guide",
+    jump, "the_end",
+
+    label, "skype",
+	s, {image: "sylvie_normal.png"},
+    setVars, "novel.userVar.bl_game = true",
+
+    narrator, "boom panes, nabalik yung wallet",
+    narrator, "wasak pa yung kidnapper",
+    narrator, "good one",
+    e, "thank you so much",
+	jump, "the_end",
+	
+    s, {visibility: "hidden"},
+    narrator, "...",
+    m, "That wasn&rsquo;t what I meant!",
+
+    
+    
+    label, "the_end",
+    scene, "menu.jpg",
+    showDialog, "hidden",
+    menu, [
+        "You may close the window, or start over again."
+    ]
+    ];
+}
+var rbtn=document.getElementById("return_btn");
+rbtn.value="hello"
+// ]]>
+</script>
+</head>
+<body onload="initNovel(800, 600);">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Kamatayan sa Isla Boracay</a>
+        </div>
+      </div>
+    </nav>
+<div id="debug"></div>
+<div id="novelDiv">
+    <div style="position: absolute;
+        left:0; top: 0; z-index:-1">
+        <img id="background0" src="images_2/empty.png">
+    </div>
+    <div style="position: absolute;
+        left:0; top: 0; z-index:-1">
+        <img id="background1" src="images_2/empty.png">
+    </div>
+    <div id="dialogDiv" style="z-index:100">
+    </div>
+</div>
+
+<div style="text-align:center; margin-top: 0.5em;"><input type="button" id="return_btn"
+    value="Back to Map" onclick="window.location.href='../../html/hackercup.html'"/></div>
+
+<div style="font-size: small">
+*temporary story for the boracay novel
+</div>
+
+</body>
+</html>
